@@ -144,11 +144,6 @@ export default function TabBarItem<T: Route>({
         };
 
   if (renderLabel) {
-    const activeLabel = renderLabel({
-      route,
-      focused: true,
-      color: activeColor,
-    });
     const inactiveLabel = renderLabel({
       route,
       focused: false,
@@ -157,14 +152,7 @@ export default function TabBarItem<T: Route>({
 
     label = (
       <View>
-        <Animated.View style={{ opacity: inactiveOpacity }}>
-          {inactiveLabel}
-        </Animated.View>
-        <Animated.View
-          style={[StyleSheet.absoluteFill, { opacity: activeOpacity }]}
-        >
-          {activeLabel}
-        </Animated.View>
+        {inactiveLabel}
       </View>
     );
   }
